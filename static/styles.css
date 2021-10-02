@@ -1,0 +1,30 @@
+#myform{
+    display: block;
+
+    justify-content: center;
+  
+    align-items: center;
+  
+    /*height: 150px;*/
+  
+    /*background:aquamarine;*/
+    opacity: 0.9;
+
+    margin-top: 10%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.items{
+    margin-left: 38%;
+    margin-right: 50%;
+    margin-top: 5%;
+}
+
+body{
+    /*background-color: aqua;*/
+    background-image: url("../static/Desktop\ Backgrounds\ Using\ Browser\ Themes\ Desktop\ Wallpapers.jpg");
+}
+
+.my-backgroundcolor-nav{
+    background-color:#3366cc;
+}
