@@ -1,0 +1,28 @@
+#myform{
+    display: block;
+    justify-content: center;  
+    align-items: center;  
+    opacity: 0.9;
+    margin-top: 3%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 3%;
+}
+
+body{
+    background-image: url("../static/Desktop\ Backgrounds\ Using\ Browser\ Themes\ Desktop\ Wallpapers.jpg");
+}
+
+.my-backgroundcolor-nav{
+    background-color:#3366cc;
+}
+
+.text-white{
+    color: white;
+}
+
+.topic{
+    margin-top: 4%;
+    text-align: center;
+    color: white;
+}
