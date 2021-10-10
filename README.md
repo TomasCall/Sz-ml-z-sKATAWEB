@@ -8,3 +8,6 @@ A Frontend része teljesen készen van
 Az adatbázisban már egy tábla megvan a felhasználói regisztrációs adatokkal (felhasználónév,email,jelszó) A másik táblával ami a számla adatokat tartalmazza még nem foglalkoztam.
 Regisztrációnál az adatokat már el tudom tárolni de a jelszó még nincs hash-elve ezt a következő update alkalmával orvosolom.
 Bejelentkezés nem működik még ezt a következő update alkalmával orvosolni fogom.
+
+2021.10.02-2021.10.10:
+Létrehoztam egy alap köszöntő oldalt ami akkor válik elérhetővé ha a felhasználó regisztrált vagy bejelentkezett.
