@@ -1,0 +1,14 @@
+body{
+    background-image: url("../static/Desktop\ Backgrounds\ Using\ Browser\ Themes\ Desktop\ Wallpapers.jpg");
+}
+
+.topic{
+    margin-top: 4%;
+    text-align: center;
+    color: white;
+}
+
+.resize{
+    width: 50%;
+    height: 50%;
+}

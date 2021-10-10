@@ -17,13 +17,9 @@ mysql = MySQL(app)
 def index():
     return "<h1>Main Page</h1>"
 
-@app.route("/users")
+@app.route("/user")
 def users():
-    cur = mysql.connection.cursor()
-    resultValue = cur.execute("SELECT * FROM adatok")
-    if resultValue > 0:
-        userDetails = cur.fetchall()
-        return render_template('user.html',userDetails=userDetails)
+    return render_template('user.html')
 
 
 @app.route("/login", methods=["GET", "POST"])
