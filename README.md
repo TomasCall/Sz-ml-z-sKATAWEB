@@ -11,3 +11,7 @@ Bejelentkezés nem működik még ezt a következő update alkalmával orvosolni
 
 2021.10.02-2021.10.10:
 Létrehoztam egy alap köszöntő oldalt ami akkor válik elérhetővé ha a felhasználó regisztrált vagy bejelentkezett.
+
+2021.10.11-2021.10.17:
+A Bejelentkezés és a Regisztráció már működik de még van mit csiszolni rajta.
+Elkészült a számla bevitele oldal és egy demo a számlák lekérdezéséhez/módosításához(Itt kicsit elakadtam a dizájn nem akar összejönni de igyekszem kiküszöbölni a következő héten).
