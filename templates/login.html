@@ -9,7 +9,7 @@
     <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
           <div class="container-fluid">
-            <a class="btn btn-primary" href="#">Kezdőlap</a>
+            <a class="btn btn-primary" href="http://127.0.0.1:5000/">Kezdőlap</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,11 +26,11 @@
         <form id="myform" method="POST" action="/login">
             <div class="mb-3">
                 <label for="Email" class="form-label text-white">E-mail cím vagy Felhasználónév</label>
-                <input type="email" class="form-control" id="Email" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="Email" name="username">
             </div>
             <div class="mb-3">
                 <label for="Password" class="form-label text-white">Jelszó</label>
-                <input type="password" class="form-control" id="Password">
+                <input type="password" class="form-control" id="Password" name="password">
             </div>
             <button type="submit" class="btn btn-primary">Bejelentkezés</button>
       </form>

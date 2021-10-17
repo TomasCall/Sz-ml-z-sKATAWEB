@@ -1,0 +1,25 @@
+body{
+    background-image: url("../static/Desktop\ Backgrounds\ Using\ Browser\ Themes\ Desktop\ Wallpapers.jpg");
+    background-repeat: no-repeat;
+}
+
+
+.mytable{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: azure;
+    border: 1px solid black;
+}
+
+.datas{
+    float: left;
+    width: 50%;
+    overflow: hidden;
+}
+
+.data-manupalitation
+{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
