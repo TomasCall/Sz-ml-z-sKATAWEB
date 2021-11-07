@@ -1,3 +1,4 @@
+from datetime import date
 import MySQLdb
 from flask import Flask, render_template, request, redirect,session
 from flask.helpers import url_for
@@ -30,7 +31,21 @@ def users():
 
 @app.route("/bills")
 def bills():
-    return render_template('bills.html')
+    if "loggedin" in session:
+        cur = mysql.connection.cursor()
+        resultValue = cur.execute(f"SELECT szamlaszam,megrendeloneve,osszeg,megrendeles_datuma,hatarido,teljesitve FROM datas where felhasznalonev='{session['username']}'")
+        if resultValue>0:
+            userDetails = cur.fetchall()
+            line_number = range(len(userDetails)+1)[-1]
+            cur.close()
+            print(len(userDetails[0][4]))
+            print(userDetails[0][4])
+            print(str(date.today().strftime("Y-M-D")))
+            return render_template('bills.html',userDetails=userDetails,line=line_number,today=date.today().strftime('%Y-%m-%d'))
+        else:
+            return render_template("bills_insert.html")
+    else:
+        return render_template("home.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -77,9 +92,23 @@ def logout():
    return redirect(url_for("login"))
 
 
-@app.route("/bills_insert")
+@app.route("/bills_insert",methods=["GET","POST"])
 def bills_insert():
-    return render_template("bills_insert.html")
+    if request.method == "POST" and "loggedin" in session and request.form["Szamlaszam"] != "" and  request.form["Megrendeloneve"] != "" and request.form["Osszeg"] != None and request.form["begining"] != "" and  request.form["Hatarido"] != "":
+        bill_details = request.form
+        bills_id = bill_details["Szamlaszam"]
+        costumer_name = bill_details["Megrendeloneve"]
+        amount = bill_details["Osszeg"]
+        begining = bill_details["begining"]
+        deadline = bill_details["Hatarido"]
+        cur = mysql.connection.cursor()
+        cur.execute(f"INSERT INTO datas(szamlaszam, osszeg, megrendeloneve, megrendeles_datuma, hatarido,felhasznalonev) VALUES(\"{bills_id}\",{amount},\"{costumer_name}\",\"{begining}\",\"{deadline}\",\"{session['username']}\")")
+        mysql.connection.commit()
+        cur.close()
+        return render_template("bills_insert.html")
+    if "loggedin" in session:
+        return render_template("bills_insert.html")
+    return render_template("home.html")
 
 
 if __name__ == '__main__':

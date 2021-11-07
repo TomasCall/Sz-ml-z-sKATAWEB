@@ -2,8 +2,22 @@ body{
     background-image: url("../static/Desktop\ Backgrounds\ Using\ Browser\ Themes\ Desktop\ Wallpapers.jpg");
     background-repeat: no-repeat;
 }
-
-
+table
+{
+ margin-top: 2%;
+ background-color: white;
+}
+thead
+{
+    background-color: rgb(13, 110, 253);
+    color: white;
+    font-size: 92%;
+}
+td
+{
+    font-size: 80%;
+}
+/*
 .mytable{
     margin-left: 10%;
     margin-right: 10%;
@@ -23,3 +37,4 @@ body{
     width: 50%;
     height: 100%;
 }
+*/

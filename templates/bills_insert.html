@@ -24,26 +24,26 @@
       </div>
   </nav>
   <h1 class="topic">Számla bevitele</h1>
-  <form id="myform" method="POST" action="/login">
+  <form id="myform" method="POST" action="/bills_insert">
     <div class="mb-3">
         <label for="Szamlaszam" class="form-label text-white">Számlaszám</label>
-        <input type="text" class="form-control" id="Szamlaszam">
+        <input type="text" class="form-control" id="Szamlaszam" name="Szamlaszam">
     </div>
     <div class="mb-3">
         <label for="Megrendeloneve" class="form-label text-white">Megrendelő neve</label>
-        <input type="text" class="form-control" id="Megrendeloneve">
+        <input type="text" class="form-control" id="Megrendeloneve" name="Megrendeloneve">
     </div>
     <div class="mb-3">
       <label for="Osszeg" class="form-label text-white">Összeg</label>
-      <input type="number" class="form-control" id="Osszeg">
+      <input type="number" class="form-control" id="Osszeg" name="Osszeg">
     </div>
     <div class="mb-3">
       <label for="Kiallitas" class="form-label text-white">Kiallitas</label>
-      <input type="date" class="form-control" id="Kiallitas">
+      <input type="date" class="form-control" id="Kiallitas" name="begining">
     </div>
     <div class="mb-3">
       <label for="Hatarido" class="form-label text-white">Határidő</label>
-      <input type="date" class="form-control" id="Hatarido">
+      <input type="date" class="form-control" id="Hatarido" name="Hatarido">
     </div>
     <button type="submit" class="btn btn-primary">Mentés</button>
     </form>
