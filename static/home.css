@@ -1,7 +1,8 @@
 body{
-    background-image: url("../static/Desktop\ Backgrounds\ Using\ Browser\ Themes\ Desktop\ Wallpapers.jpg");
+    background-image: url("./bg.jpg");
+    width: 100%;
+    height: 100%;
     background-repeat: no-repeat;
-}
 
 .introduction{
     margin-top: 1.5%;
