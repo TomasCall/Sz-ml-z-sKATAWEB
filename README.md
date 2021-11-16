@@ -15,10 +15,12 @@ Létrehoztam egy alap köszöntő oldalt ami akkor válik elérhetővé ha a fel
 2021.10.11-2021.10.17:
 A Bejelentkezés és a Regisztráció már működik de még van mit csiszolni rajta.
 Elkészült a számla bevitele oldal és egy demo a számlák lekérdezéséhez/módosításához(Itt kicsit elakadtam a dizájn nem akar összejönni de igyekszem kiküszöbölni a következő héten).
+
 2021.10.17-2021.11.07:
 Létrehoztam egy új adattáblát a számlák bevitelére.
 Az egyes felhasználók le tudják kérni a számláikat a megfelelő oldalon és a táblázat a megfelelő színre szineződik a lekérdezett értékek alapján.
 A Táblázat kapott egy új sokkal dizájnosabb kinézetet.
 A Táblázat soraira kattintva a sorok értékeit a jobb oldalt lévő formba töltjük.(Még a frissítés nem működik de a következő commit alkalmával ez is javítva lesz)
+
 2021.11.07-2021.11.07:
 Elkészült a cégek oldal, még lehet lesznek benne változtatások de az csak az adott év nézésrée vontakozik, és lehet a táblázat jobban lesz igazítva.
