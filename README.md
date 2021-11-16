@@ -20,3 +20,5 @@ Létrehoztam egy új adattáblát a számlák bevitelére.
 Az egyes felhasználók le tudják kérni a számláikat a megfelelő oldalon és a táblázat a megfelelő színre szineződik a lekérdezett értékek alapján.
 A Táblázat kapott egy új sokkal dizájnosabb kinézetet.
 A Táblázat soraira kattintva a sorok értékeit a jobb oldalt lévő formba töltjük.(Még a frissítés nem működik de a következő commit alkalmával ez is javítva lesz)
+2021.11.07-2021.11.07:
+Elkészült a cégek oldal, még lehet lesznek benne változtatások de az csak az adott év nézésrée vontakozik, és lehet a táblázat jobban lesz igazítva.
