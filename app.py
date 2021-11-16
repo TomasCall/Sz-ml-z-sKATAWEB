@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 import MySQLdb
 from flask import Flask, render_template, request, redirect,session
 from flask.helpers import url_for
@@ -36,7 +36,8 @@ def bills():
         resultValue = cur.execute(f"SELECT szamlaszam,megrendeloneve,osszeg,megrendeles_datuma,hatarido,teljesitve FROM datas where felhasznalonev='{session['username']}'")
         if resultValue>0:
             userDetails = cur.fetchall()
-            line_number = range(len(userDetails)+1)[-1]
+            #line_number = range(len(userDetails)+1)[-1]
+            line_number = len(userDetails)
             cur.close()
             print(len(userDetails[0][4]))
             print(userDetails[0][4])
@@ -108,6 +109,24 @@ def bills_insert():
         return render_template("bills_insert.html")
     if "loggedin" in session:
         return render_template("bills_insert.html")
+    return render_template("home.html")
+
+
+@app.route("/companies")
+def companies():
+    if "loggedin" in session:
+        cur = mysql.connection.cursor()
+        now = int(datetime.now().strftime("%Y"))
+        now_str = str(int(now))+"-01-01"
+        next_str = str(int(now)+1)+"-01-01"
+        resultValue = cur.execute(f"SELECT megrendeloneve,sum(osszeg) From datas where felhasznalonev = '{session['username']}' and megrendeles_datuma between '{now_str}' AND '{next_str}' group by megrendeloneve order by sum(osszeg) desc")
+        if resultValue>0:
+            userDetails = cur.fetchall()
+            line_number = range(len(userDetails)+1)[-1]
+            cur.close()
+            return render_template('companies.html',userDetails=userDetails,line=line_number)
+        else:
+            return render_template("bills_insert.html")
     return render_template("home.html")
 
 
