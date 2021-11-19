@@ -43,51 +43,37 @@
                   <th scope="col">Teljesítve</th>
                 </tr>
               </thead>
-
               <tbody>
-                <!--
-                {% for i in range(line) %}
-                <tr  onclick="getLine({{i+1}})">
-                  <td> {{i+1}} </td>
-                  <td> {{userDetails[i][0]}} </td>
-                  <td> {{userDetails[i][1]}} </td>
-                  <td> {{userDetails[i][2]}} </td>
-                  <td> {{userDetails[i][3]}} </td>
-                  <td> {{userDetails[i][4]}} </td>
-                  <td> {{userDetails[i][5]}} </td>
-                </tr>
-                {% endfor %}
-                -->
                 {% for i in range(line) %}
                   {% if userDetails[i][5]==1%}
                   <tr class="bg-success p-2 text-white"  onclick="getLine({{i+1}})">
-                    <td> {{i+1}} </td>
-                    <td> {{userDetails[i][0]}} </td>
-                    <td> {{userDetails[i][1]}} </td>
-                    <td> {{userDetails[i][2]}} </td>
-                    <td> {{userDetails[i][3]}} </td>
-                    <td> {{userDetails[i][4]}} </td>
-                   <td> {{userDetails[i][5]}} </td>
+                    <td>{{i+1}} </td>
+                    <td>{{userDetails[i][0]}}</td>
+                    <td>{{userDetails[i][1]}}</td>
+                    <td>{{userDetails[i][2]}}</td>
+                    <td>{{userDetails[i][3]}}</td>
+                    <td>{{userDetails[i][4]}}</td>
+                   <td>{{userDetails[i][5]}}</td>
                   </tr>
                   {% elif userDetails[i][4].strip()>today and userDetails[i][5]==0 %}
                   <tr class="bg-warning p-2 text-white"  onclick="getLine({{i+1}})">
-                    <td> {{i+1}} </td>
-                    <td> {{userDetails[i][0]}} </td>
-                    <td> {{userDetails[i][1]}} </td>
-                    <td> {{userDetails[i][2]}} </td>
-                    <td> {{userDetails[i][3]}} </td>
-                    <td> {{userDetails[i][4]}} </td>
-                    <td> {{userDetails[i][5]}} </td>
+                    <td>{{i+1}}</td>
+                    <td>{{userDetails[i][0]}}</td>
+                    <td>{{userDetails[i][1]}}</td>
+                    <td>{{userDetails[i][2]}}</td>
+                    <td>{{userDetails[i][3]}}</td>
+                    <td>{{userDetails[i][4]}}</td>
+                    <td>{{userDetails[i][5]}}</td>
                   </tr>
                   {% elif userDetails[i][4].strip()<today and userDetails[i][5]==0 %}
                   <tr class="bg-danger p-2 text-white"  onclick="getLine({{i+1}})">
-                    <td> {{i+1}} </td>
-                    <td> {{userDetails[i][0]}} </td>
-                    <td> {{userDetails[i][1]}} </td>
-                    <td> {{userDetails[i][2]}} </td>
-                    <td> {{userDetails[i][3]}} </td>
-                    <td> {{userDetails[i][4]}} </td>
-                    <td> {{userDetails[i][5]}} </td>
+                    <td>{{i+1}}</td>
+                    <td>{{userDetails[i][0]}}</td>
+                    <td>{{userDetails[i][1]}}</td>
+                    <td>{{userDetails[i][2]}}</td>
+                    <td>{{userDetails[i][3]}}</td>
+                    <td>{{userDetails[i][4]}}</td>
+                    <td>{{userDetails[i][5]}}</td>
                   </tr>
                   {% endif %}
                 {% endfor %}
@@ -125,30 +111,30 @@
             </table>
         </div>
         <div class="data-manupalitation col-sm-12 col-md-4 col-lg-6">
-      <form id="myform" method="POST" action="/login">
+      <form id="myform" method="POST" action="/bills">
         <div class="mb-3">
             <label for="Szamlaszam" class="form-label text-white">Számlaszám</label>
-            <input type="text" class="form-control" id="Szamlaszam">
+            <input type="text" class="form-control" id="Szamlaszam" name="Szamlaszam">
         </div>
         <div class="mb-3">
             <label for="Megrendeloneve" class="form-label text-white">Megrendelő neve</label>
-            <input type="text" class="form-control" id="Megrendeloneve">
+            <input type="text" class="form-control" id="Megrendeloneve" name="Megrendeloneve">
         </div>
         <div class="mb-3">
           <label for="Osszeg" class="form-label text-white">Összeg</label>
-          <input type="number" class="form-control" id="Osszeg">
+          <input type="number" class="form-control" id="Osszeg" name="Osszeg">
         </div>
         <div class="mb-3">
           <label for="Kiallitas" class="form-label text-white">Kiallitas</label>
-          <input type="date" class="form-control" id="Kiallitas">
+          <input type="date" class="form-control" id="Kiallitas" name="Kiallitas">
         </div>
         <div class="mb-3">
           <label for="Hatarido" class="form-label text-white">Határidő</label>
-          <input type="date" class="form-control" id="Hatarido">
+          <input type="date" class="form-control" id="Hatarido" name="Hatarido">
         </div>
         <div class="mb-3">
           <label for="Teljesitve" class="form-label text-white">Teljesitve</label>
-          <input type="checkbox" id="Teljesitve">
+          <input type="checkbox" id="Teljesitve" name="Teljesitve">
         </div>
         <button type="submit" class="btn btn-primary">Frissítés</button>
       </form>
