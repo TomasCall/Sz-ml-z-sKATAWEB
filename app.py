@@ -64,21 +64,22 @@ def bills():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    msg = ''
+    msg = 'Bejelentkezés'
     if request.method == "POST" and "username" in request.form and "password" in request.form:
         username = request.form["username"]
         password = request.form["password"]
         cursor = mysql.connection.cursor()
-        command = f"SELECT felhasznalonev,email,jelszo FROM user WHERE felhasznalonev = '{username}'"
-        a = cursor.execute(command)
+        command = f"SELECT felhasznalonev,email,jelszo FROM user WHERE felhasznalonev = '{username}' or email='{username}'"
+        resultValue = cursor.execute(command)
         account = cursor.fetchall()
         cursor.close()
-        if bcrypt.check_password_hash(account[0][2], password):
-            session["loggedin"] = True
-            session["username"] = username
-            return redirect("/user")
-        else:
-            msg = "Incorrect username/password!"
+        try:
+            if bcrypt.check_password_hash(account[0][2], password):
+                session["loggedin"] = True
+                session["username"] = username
+                return redirect("/user")
+        except:
+            msg = "Rossz jelszó vagy password"
     return render_template('login.html', msg=msg)
 
 
