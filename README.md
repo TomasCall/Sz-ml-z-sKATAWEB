@@ -26,3 +26,4 @@ A Táblázat soraira kattintva a sorok értékeit a jobb oldalt lévő formba t�
 Elkészült a cégek oldal, még lehet lesznek benne változtatások de az csak az adott év nézésrée vontakozik, és lehet a táblázat jobban lesz igazítva.
 Elkészült a bills insert oldal backend része teljesen továbbá optimalizálva lett a backend oldal. Frontenden még lesznek finomhangolások.
 A jelszó mostmár hash-elve van tárolva
+Email címes bejelentkezés is megvan oldva
