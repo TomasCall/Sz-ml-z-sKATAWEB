@@ -13,7 +13,7 @@ function getLine(line)
     document.getElementById("Osszeg").setAttribute('value',parseInt(list[2]));
     document.getElementById("Kiallitas").value=list[3];
     document.getElementById("Hatarido").value=list[4];
-    if(list[5]==" 1 ")
+    if(list[5]=="1")
     {
         document.getElementById("Teljesitve").checked=true;
     }

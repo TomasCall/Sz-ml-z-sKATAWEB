@@ -3,9 +3,11 @@ import MySQLdb
 from flask import Flask, render_template, request, redirect,session
 from flask.helpers import url_for
 from flask_mysqldb import MySQL
+from flask_bcrypt import Bcrypt
 
 
 app = Flask(__name__)
+bcrypt = Bcrypt(app)
 
 app.secret_key = 'your secret key'
 
@@ -24,7 +26,7 @@ def index():
 
 
 @app.route("/user")
-def users():
+def user():
     if "loggedin" in session:
         return render_template('user.html')
     return redirect(url_for("index"))
@@ -66,13 +68,14 @@ def login():
     if request.method == "POST" and "username" in request.form and "password" in request.form:
         username = request.form["username"]
         password = request.form["password"]
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("SELECT * FROM user WHERE felhasznalonev = %s AND jelszo = %s", (username, password,))
-        account = cursor.fetchone()
+        cursor = mysql.connection.cursor()
+        command = f"SELECT felhasznalonev,email,jelszo FROM user WHERE felhasznalonev = '{username}'"
+        a = cursor.execute(command)
+        account = cursor.fetchall()
         cursor.close()
-        if account:
+        if bcrypt.check_password_hash(account[0][2], password):
             session["loggedin"] = True
-            session["username"] = account["felhasznalonev"]
+            session["username"] = username
             return redirect("/user")
         else:
             msg = "Incorrect username/password!"
@@ -86,7 +89,7 @@ def registration():
         userDetails = request.form
         name = userDetails["username"]
         email = userDetails["email"]
-        password = userDetails["password"]
+        password = bcrypt.generate_password_hash(userDetails["password"]).decode("utf-8")
         cur = mysql.connection.cursor()
         cur.execute(f"INSERT INTO user(felhasznalonev, email, jelszo) VALUES(\"{name}\",\"{email}\",\"{password}\")")
         mysql.connection.commit()
@@ -106,21 +109,22 @@ def logout():
 
 @app.route("/bills_insert",methods=["GET","POST"])
 def bills_insert():
-    if request.method == "POST" and "loggedin" in session and request.form["Szamlaszam"] != "" and  request.form["Megrendeloneve"] != "" and request.form["Osszeg"] != None and request.form["begining"] != "" and  request.form["Hatarido"] != "":
-        bill_details = request.form
-        bills_id = bill_details["Szamlaszam"]
-        costumer_name = bill_details["Megrendeloneve"]
-        amount = bill_details["Osszeg"]
-        begining = bill_details["begining"]
-        deadline = bill_details["Hatarido"]
-        cur = mysql.connection.cursor()
-        cur.execute(f"INSERT INTO datas(szamlaszam, osszeg, megrendeloneve, megrendeles_datuma, hatarido,felhasznalonev) VALUES(\"{bills_id}\",{amount},\"{costumer_name}\",\"{begining}\",\"{deadline}\",\"{session['username']}\")")
-        mysql.connection.commit()
-        cur.close()
-        return redirect(url_for("bills_insert"))
     if "loggedin" in session:
-        return render_template("bills_insert.html")
-    return redirect(url_for(home))
+        if request.method == "POST" and "loggedin" in session and request.form["Szamlaszam"] != "" and  request.form["Megrendeloneve"] != "" and request.form["Osszeg"] != None and request.form["begining"] != "" and  request.form["Hatarido"] != "":
+            bill_details = request.form
+            bills_id = bill_details["Szamlaszam"]
+            costumer_name = bill_details["Megrendeloneve"]
+            amount = bill_details["Osszeg"]
+            begining = bill_details["begining"]
+            deadline = bill_details["Hatarido"]
+            cur = mysql.connection.cursor()
+            cur.execute(f"INSERT INTO datas(szamlaszam, osszeg, megrendeloneve, megrendeles_datuma, hatarido,felhasznalonev) VALUES(\"{bills_id}\",{amount},\"{costumer_name}\",\"{begining}\",\"{deadline}\",\"{session['username']}\")")
+            mysql.connection.commit()
+            cur.close()
+            return redirect(url_for("bills_insert"))
+        else:
+            return render_template("bills_insert.html")
+    return redirect(url_for("home"))
 
 
 @app.route("/companies")
@@ -137,7 +141,7 @@ def companies():
             cur.close()
             return render_template('companies.html',userDetails=userDetails,line=line_number)
         else:
-            return redirect(url_for("bills_insert.html"))
+            return redirect(url_for("bills_insert"))
     return redirect(url_for("home.html"))
 
 

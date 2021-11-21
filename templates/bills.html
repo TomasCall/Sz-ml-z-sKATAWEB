@@ -65,7 +65,7 @@
                     <td>{{userDetails[i][4]}}</td>
                     <td>{{userDetails[i][5]}}</td>
                   </tr>
-                  {% elif userDetails[i][4].strip()<today and userDetails[i][5]==0 %}
+                  {% elif userDetails[i][4].strip()<=today and userDetails[i][5]==0 %}
                   <tr class="bg-danger p-2 text-white"  onclick="getLine({{i+1}})">
                     <td>{{i+1}}</td>
                     <td>{{userDetails[i][0]}}</td>
