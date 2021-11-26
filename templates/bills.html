@@ -55,7 +55,7 @@
                     <td>{{userDetails[i][4]}}</td>
                    <td>{{userDetails[i][5]}}</td>
                   </tr>
-                  {% elif userDetails[i][4].strip()>today and userDetails[i][5]==0 %}
+                  {% elif userDetails[i][4].strftime('%Y-%m-%d')>today and userDetails[i][5]==0 %}
                   <tr class="bg-warning p-2 text-white"  onclick="getLine({{i+1}})">
                     <td>{{i+1}}</td>
                     <td>{{userDetails[i][0]}}</td>
@@ -65,7 +65,7 @@
                     <td>{{userDetails[i][4]}}</td>
                     <td>{{userDetails[i][5]}}</td>
                   </tr>
-                  {% elif userDetails[i][4].strip()<=today and userDetails[i][5]==0 %}
+                  {% elif userDetails[i][4].strftime('%Y-%m-%d') <=today and userDetails[i][5]==0 %}
                   <tr class="bg-danger p-2 text-white"  onclick="getLine({{i+1}})">
                     <td>{{i+1}}</td>
                     <td>{{userDetails[i][0]}}</td>
@@ -111,7 +111,7 @@
             </table>
         </div>
         <div class="data-manupalitation col-sm-12 col-md-4 col-lg-6">
-      <form id="myform" method="POST" action="/bills">
+      <form  method="POST" action="/bills">
         <div class="mb-3">
             <label for="Szamlaszam" class="form-label text-white">Számlaszám</label>
             <input type="text" class="form-control" id="Szamlaszam" name="Szamlaszam">
