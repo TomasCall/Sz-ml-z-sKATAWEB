@@ -27,3 +27,7 @@ Elkészült a cégek oldal, még lehet lesznek benne változtatások de az csak 
 Elkészült a bills insert oldal backend része teljesen továbbá optimalizálva lett a backend oldal. Frontenden még lesznek finomhangolások.
 A jelszó mostmár hash-elve van tárolva
 Email címes bejelentkezés is megvan oldva
+
+2021.11.07-2021.11.29:
+Regisztráció javítva.
+Számláknál lehet módosítani a számlaszámot is mivel át lett dolgozva javascriptre.
