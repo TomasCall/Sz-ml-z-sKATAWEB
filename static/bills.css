@@ -3,40 +3,56 @@ body{
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
+    overflow-x: hidden;
 }
 table
 {
- margin-top: 2%;
  background-color: white;
+ max-height: 5%;
+ text-align:center;
+ table-layout: fixed;
 }
 thead
 {
+    table-layout:fixed;
     background-color: rgb(13, 110, 253);
     color: white;
     font-size: 92%;
+    display:table;
+    width:100%;
+    table-layout:fixed;
 }
 td
 {
     font-size: 80%;
-}
-/*
-.mytable{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: azure;
-    border: 1px solid black;
+    display: table-cell;
 }
 
-.datas{
-    float: left;
-    width: 50%;
-    overflow: hidden;
+.container
+{
+    margin-top: 5%;
+}
+
+tbody
+{   display:block;
+    max-height:450px;
+    overflow-y:scroll;
+}
+
+
+tr
+{ 
+    display:table;
+    width:100%;
+    table-layout:fixed;
 }
 
 .data-manupalitation
 {
-    float: left;
-    width: 50%;
-    height: 100%;
+    margin-top: 3%;
 }
-*/
+
+.datas
+{
+    margin-top: 3%;
+}
