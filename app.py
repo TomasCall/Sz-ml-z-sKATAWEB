@@ -40,7 +40,7 @@ def registration():
             session["username"] = userDetails["username"]
             return redirect(url_for("user"))
         except:
-             return redirect(url_for("user"))
+             return redirect(url_for("registration"))
     return render_template("registration.html")
 
 @app.route("/login", methods=["GET", "POST"])
