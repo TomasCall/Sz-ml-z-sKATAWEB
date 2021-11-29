@@ -50,7 +50,7 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
         cursor = mysql.connection.cursor()
-        command = f"SELECT felhasznalonev,email,jelszo FROM user WHERE felhasznalonev = '{username}' or email='{username}'"
+        command = f"SELECT felhasznalonev,email,jelszo FROM user WHERE felhasznalonev = '{username}'"
         cursor.execute(command)
         account = cursor.fetchall()
         cursor.close()
