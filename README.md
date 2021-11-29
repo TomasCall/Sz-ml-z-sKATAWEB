@@ -31,3 +31,4 @@ Email címes bejelentkezés is megvan oldva
 2021.11.07-2021.11.29:
 Regisztráció javítva.
 Számláknál lehet módosítani a számlaszámot is mivel át lett dolgozva javascriptre.
+Minden css funkció működik.
